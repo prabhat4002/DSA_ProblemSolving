@@ -1,0 +1,23 @@
+class Solution {
+    public Queue<Integer> reverseFirstK(Queue<Integer> q, int k) {
+        // code here
+        int s=q.size();
+        if(k>s || k<0){
+            return q;
+        }
+        Stack<Integer> st=new Stack<>();
+        for(int i=0;i<k;i++){
+            int n1=q.remove();
+            st.push(n1);
+        }
+        for(int i=0;i<k;i++){
+            int n2=st.pop();
+            q.add(n2);
+        }
+        for(int i=0;i<s-k;i++){
+            int n3=q.remove();
+            q.add(n3);
+        }
+        return q;
+    }
+}
