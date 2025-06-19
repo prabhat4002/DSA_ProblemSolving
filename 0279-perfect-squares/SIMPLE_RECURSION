@@ -1,0 +1,13 @@
+class Solution {
+    public int numSquares(int n) {
+        if(n==0 || n==1){
+            return n;
+        }
+        int smallest=Integer.MAX_VALUE;
+        for(int i=1;i*i<=n;i++){
+            int temp=numSquares(n-i*i)+1;
+            smallest=Math.min(smallest,temp);
+        }
+        return smallest;
+    }
+}
